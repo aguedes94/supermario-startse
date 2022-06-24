@@ -1,6 +1,12 @@
 const mario = document.querySelector(".super-mario");
 const pipe = document.querySelector(".pipe-game");
 
+const startGame = () => {
+    document.getElementById("start").style.display = "none";
+}
+
+document.addEventListener("keydown", startGame);
+
 const jump = () => {
     mario.classList.add("jump-mario");
 
@@ -25,6 +31,9 @@ const loopGame = setInterval(() => {
         mario.src = "./images/mario-game-over.png";
         mario.style.width = "75px";
         mario.style.marginLeft = "45px";
+        
+        document.getElementById("start").style.display = "block";
+        document.getElementById("start").innerHTML = "<strong>GAME OVER<strong/>";             
 
         clearInterval(loopGame);
 
